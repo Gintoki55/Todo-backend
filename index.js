@@ -7,7 +7,13 @@ const port = 3000;
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://ahmedbarkhed:99149747amm@myfirstnodejscluster.y2gbr.mongodb.net/?retryWrites=true&w=majority&appName=myfirstNodeJSCluster')
+mongoose.connect('mongodb+srv://ahmedbarkhed:99149747amm@myfirstnodejscluster.y2gbr.mongodb.net/?retryWrites=true&w=majority&appName=myfirstNodeJSCluster',{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  keepAlive: true,        // Keeps the connection alive
+  keepAliveInitialDelay: 300000 // Delay before keep-alive starts
+})
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Connection failed', err));
 
