@@ -19,13 +19,19 @@ app.get('/', (req, res) => {
     res.send('Hello, World!!!');
 })
 
+app.get('/welcome', (req, res) => {
+    res.send('Welcome to the To-Do API!')
+})
+
 // Get all todos
 app.get('/todos', async (req, res) => {
     try {
         const todos = await Todo.find();
-        res.status(200).json(todos);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.json(todos);
+        return
+    } catch (error) {
+        console.error("Error fetching todos:", error.message);
+        res.status(500).json({ error: "An error occurred while fetching todos." });
     }
 });
 
