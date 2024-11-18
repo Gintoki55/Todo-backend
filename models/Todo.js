@@ -6,17 +6,14 @@ const Schema = mongoose.Schema;
 const todoSchema = new Schema({
     title: {
         type: String,
-        required: true,
-        unique: true, // Ensures no duplicate task titles
-        trim: true    // Removes leading and trailing whitespace
     },
     completed: {
         type: Boolean,
-        default: false // Default status is incomplete
+        default: false
     },
     createdAt: {
         type: Date,
-        default: Date.now // Automatically set the creation timestamp
+        default: Date.now 
     }
 });
 
