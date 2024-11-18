@@ -11,6 +11,14 @@ mongoose.connect('mongodb+srv://davidmohmed:99149747amm@cluster1.sesqp.mongodb.n
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Connection failed', err));
 
+
+
+/// test 
+
+app.get('/', (req, res) => {
+    res.send('Hello, World!!!');
+})
+
 // Get all todos
 app.get('/todos', async (req, res) => {
     try {
