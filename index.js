@@ -7,7 +7,7 @@ const port = 3000;
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://davidmohmed:99149747amm@cluster1.sesqp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1')
+mongoose.connect('mongodb+srv://davidmohmed:99149747Amm@mytodoproject.tigg4.mongodb.net/?retryWrites=true&w=majority&appName=myTodoProject')
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Connection failed', err));
 
@@ -39,7 +39,8 @@ app.get('/todos', async (req, res) => {
 app.post('/todos', async (req, res) => {
     try {
         const newTodo = new Todo({
-            title: req.body.title
+            title: req.body.title,
+            completed: req.body.completed
         });
         const savedTodo = await newTodo.save();
         res.status(201).json(savedTodo);
