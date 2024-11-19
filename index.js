@@ -26,14 +26,14 @@ app.get('/welcome', (req, res) => {
 // Get all todos
 app.get('/todos', async (req, res) => {
     try {
-        const todos = await Todo.find();
-        res.json(todos);
-        return
+        const todos = await Todo.find(); // Fetch all todos
+        res.status(200).json(todos);    // Return the todos in JSON format
     } catch (error) {
         console.error("Error fetching todos:", error.message);
         res.status(500).json({ error: "An error occurred while fetching todos." });
     }
 });
+
 
 // Add a new todo
 app.post('/todos', async (req, res) => {
