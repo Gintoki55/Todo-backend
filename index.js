@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Todo = require('./models/Todo'); // Path to your Todo model
-
+const cors = require('cors');
 const app = express();
 const port = 3000;
 app.use(express.json());
-
+app.use(cors());
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://davidmohmed:99149747Amm@mytodoproject.tigg4.mongodb.net/?retryWrites=true&w=majority&appName=myTodoProject')
 .then(() => console.log('Connected to MongoDB'))
